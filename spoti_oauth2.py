@@ -17,7 +17,7 @@ print 'Please go here and authorize\n', authorization_url
 redirect_response = raw_input('Paste the full redirect URL here:\n')
 spotify.fetch_token(token_url=authorization_token_url, client_secret=client_secret, authorization_response=redirect_response)
 
-def get_track_id(track_name):
-    spotify_response = spotify.get('https://api.spotify.com/v1/search?q={0}&type=track'.format(quote_plus(track_name)))
-    return spotify_response.json().items()[0][1]['items'][0]['id']
+def get_track_id(track_name, oauth_target):
+    target_response = oauth_target.get('https://api.spotify.com/v1/search?q={0}&type=track'.format(quote_plus(track_name)))
+    return target_response.json().items()[0][1]['items'][0]['id'];
 

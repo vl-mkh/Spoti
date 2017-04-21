@@ -4,9 +4,10 @@ from get_cue_tracks import get_artist_and_title_cue
 lib_path = "C:\\Users\\vladm\\Music"
 exclude = ["5'nizza", "Alai Oli", "MusicBee", "NoizeMC", "SunSay", "?????? ???????"]
 
-tracks_part_1 = get_artist_and_title(lib_path, exclude)
-tracks_part_2 = get_artist_and_title_cue(lib_path, exclude)
-all_tracks = tracks_part_1.items() + tracks_part_2.items()
+def all_tracks(folder, exclude_folders):
+    tracks_part_1 = get_artist_and_title(folder, exclude_folders)
+    tracks_part_2 = get_artist_and_title_cue(folder, exclude_folders)
+    all_tracks = tracks_part_1.items() + tracks_part_2.items()
+    return all_tracks
 
-print all_tracks
-print len(all_tracks)
+print all_tracks(lib_path, exclude)
